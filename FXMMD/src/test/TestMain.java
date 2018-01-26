@@ -42,18 +42,18 @@ public class TestMain extends Application{
 		// Groupにメッシュを追加
 		root.getChildren().addAll(meshes);
 
-        // カメラ設定
-        PerspectiveCamera   camera  = new PerspectiveCamera( true );
-        camera.setFarClip( 300 );
-        camera.setTranslateY( -10 );
-        camera.setTranslateZ( -60 );
-        scene.setCamera( camera );
+		// カメラ設定
+		PerspectiveCamera   camera  = new PerspectiveCamera( true );
+		camera.setFarClip( 300 );
+		camera.setTranslateY( -10 );
+		camera.setTranslateZ( -60 );
+		scene.setCamera( camera );
 
-        // 光源設定
-        LightBase   light       = new PointLight();
-        light.setTranslateY(-20);
-        light.setTranslateZ( -50 );
-        root.getChildren().add( light );
+		// 光源設定
+		LightBase   light       = new PointLight();
+		light.setTranslateY(-20);
+		light.setTranslateZ( -50 );
+		root.getChildren().add( light );
 
 		primaryStage.setScene(scene);
 		primaryStage.show();
