@@ -5,7 +5,7 @@ package fxmmd.vmd;
 
 /**
  * vmdデータのヘッダです。
- * @author shigeo
+ * @author neko爺
  *
  */
 public final class VMDHeader {
