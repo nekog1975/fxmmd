@@ -2,4 +2,5 @@ fxmmd
 fxmmd.common
 fxmmd.common.util
 fxmmd.pmd
+fxmmd.vmd
 test

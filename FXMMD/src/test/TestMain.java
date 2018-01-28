@@ -34,7 +34,7 @@ public class TestMain extends Application{
 		scene.setFill(Paint.valueOf("blue"));
 
 		// PMD読み込み
-		PMD pmd = PMDLoader.load(Paths.get("ここにPMDファイルのパスを指定してね。"));
+		PMD pmd = PMDLoader.load(Paths.get("D:\\mmd\\（PMD_FBX）社畜ちゃんVer.2.1\\影書き込みVer\\PMD\\社畜ちゃんVer.2.1.pmd"));
 
 		// メッシュ作成
 		List<MeshView> meshes = PMDConverter.convert(pmd);
