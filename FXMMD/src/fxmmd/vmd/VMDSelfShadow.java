@@ -5,7 +5,7 @@ package fxmmd.vmd;
 
 /**
  * セルフシャドウのデータです。
- * @author shigeo
+ * @author neko爺
  *
  */
 public final class VMDSelfShadow {

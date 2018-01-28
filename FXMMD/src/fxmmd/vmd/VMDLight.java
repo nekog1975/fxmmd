@@ -8,7 +8,7 @@ import fxmmd.Vector3;
 
 /**
  * 照明のデータです。
- * @author shigeo
+ * @author neko爺
  *
  */
 public final class VMDLight {
