@@ -18,12 +18,16 @@ public final class VMD {
 	private List<VMDMotion> motions;
 	private List<VMDSkin> skins;
 	private List<VMDCamera> cameras;
+	private List<VMDLight> lights;
+	private List<VMDSelfShadow> selfshadows;
 
 	public VMD(Path path,
 				VMDHeader header,
 				List<VMDMotion> motions,
 				List<VMDSkin> skins,
-				List<VMDCamera> cameras
+				List<VMDCamera> cameras,
+				List<VMDLight> lights,
+				List<VMDSelfShadow> selfshadows
 			) {
 
 		this.path = path;
@@ -31,6 +35,8 @@ public final class VMD {
 		this.motions = motions;
 		this.skins = skins;
 		this.cameras = cameras;
+		this.lights = lights;
+		this.selfshadows = selfshadows;
 
 	}
 
