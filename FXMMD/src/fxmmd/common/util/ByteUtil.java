@@ -15,6 +15,24 @@ import java.nio.ByteOrder;
 public final class ByteUtil{
 
 	/**
+	 * byte配列からunsigned byteの値をint配列として取得する
+	 * @param bytes バイト配列
+	 * @param offset 取得開始位置
+	 * @param count 配列個数
+	 * @return int値配列
+	 */
+	public static int[] toUByteArray(byte[] bytes, int offset, int count) {
+
+		int[] dst = new int[count];
+		for(int i=0; i<count; i++) {
+			dst[i] = Byte.toUnsignedInt(bytes[offset + i]);
+		}
+
+		return dst;
+
+	}
+
+	/**
 	 * byte配列からfloatの配列を取得する
 	 * @param bytes バイト配列
 	 * @param offset 取得開始位置

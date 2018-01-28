@@ -21,6 +21,16 @@ public final class VMD {
 	private List<VMDLight> lights;
 	private List<VMDSelfShadow> selfshadows;
 
+	/**
+	 * コンストラクタ
+	 * @param path パス
+	 * @param header ヘッダ情報
+	 * @param motions モーション情報
+	 * @param skins 表情情報
+	 * @param cameras カメラ情報
+	 * @param lights 照明情報
+	 * @param selfshadows セルフシャドウ情報
+	 */
 	public VMD(Path path,
 				VMDHeader header,
 				List<VMDMotion> motions,
@@ -39,5 +49,55 @@ public final class VMD {
 		this.selfshadows = selfshadows;
 
 	}
+
+	/**
+	 * @return path
+	 */
+	public Path getPath() {
+		return path;
+	}
+
+	/**
+	 * @return header
+	 */
+	public VMDHeader getHeader() {
+		return header;
+	}
+
+	/**
+	 * @return motions
+	 */
+	public List<VMDMotion> getMotions() {
+		return motions;
+	}
+
+	/**
+	 * @return skins
+	 */
+	public List<VMDSkin> getSkins() {
+		return skins;
+	}
+
+	/**
+	 * @return cameras
+	 */
+	public List<VMDCamera> getCameras() {
+		return cameras;
+	}
+
+	/**
+	 * @return lights
+	 */
+	public List<VMDLight> getLights() {
+		return lights;
+	}
+
+	/**
+	 * @return selfshadows
+	 */
+	public List<VMDSelfShadow> getSelfshadows() {
+		return selfshadows;
+	}
+
 
 }
