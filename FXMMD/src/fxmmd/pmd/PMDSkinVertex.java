@@ -3,7 +3,7 @@
  */
 package fxmmd.pmd;
 
-import fxmmd.Vector3;
+import javafx.geometry.Point3D;
 
 /**
  * 表情座標情報です。
@@ -13,14 +13,14 @@ import fxmmd.Vector3;
 public final class PMDSkinVertex {
 
 	private int index;
-	private Vector3 pos;
+	private Point3D pos;
 
 	/**
 	 * コンストラクタ
 	 * @param index 頂点番号
 	 * @param pos 座標
 	 */
-	public PMDSkinVertex(int index, Vector3 pos) {
+	public PMDSkinVertex(int index, Point3D pos) {
 		this.index = index;
 		this.pos = pos;
 	}
@@ -35,7 +35,7 @@ public final class PMDSkinVertex {
 	/**
 	 * @return pos
 	 */
-	public Vector3 getPos() {
+	public Point3D getPos() {
 		return pos;
 	}
 

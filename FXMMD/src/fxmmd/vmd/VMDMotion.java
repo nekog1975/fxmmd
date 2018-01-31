@@ -3,8 +3,8 @@
  */
 package fxmmd.vmd;
 
-import fxmmd.Vector3;
-import fxmmd.Vector4;
+import fxmmd.Point4D;
+import javafx.geometry.Point3D;
 
 /**
  * モーションデータです。
@@ -15,8 +15,8 @@ public final class VMDMotion {
 
 	private String bone_name;
 	private int frame_no;
-	private Vector3 location;
-	private Vector4 rotation;
+	private Point3D location;
+	private Point4D rotation;
 	private int[] interpolations;
 
 	/**
@@ -27,7 +27,7 @@ public final class VMDMotion {
 	 * @param rotation 回転
 	 * @param interpolations 補完
 	 */
-	public VMDMotion(String bone_name, int frame_no, Vector3 location, Vector4 rotation, int[] interpolations) {
+	public VMDMotion(String bone_name, int frame_no, Point3D location, Point4D rotation, int[] interpolations) {
 		this.bone_name = bone_name;
 		this.frame_no = frame_no;
 		this.location = location;
@@ -52,14 +52,14 @@ public final class VMDMotion {
 	/**
 	 * @return location
 	 */
-	public Vector3 getLocation() {
+	public Point3D getLocation() {
 		return location;
 	}
 
 	/**
 	 * @return rotation
 	 */
-	public Vector4 getRotation() {
+	public Point4D getRotation() {
 		return rotation;
 	}
 

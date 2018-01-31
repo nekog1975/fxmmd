@@ -3,7 +3,7 @@
  */
 package fxmmd.pmd;
 
-import fxmmd.Vector3;
+import javafx.geometry.Point3D;
 
 /**
  * ボーン情報のクラスです。
@@ -12,15 +12,17 @@ import fxmmd.Vector3;
  */
 public final class PMDBone {
 
+	private int index;
 	private String name;
 	private int parent_index;
 	private int tail_pos_index;
 	private byte type;
 	private int ik_parent_index;
-	private Vector3 head_pos;
+	private Point3D head_pos;
 
 	/**
 	 * コンストラクタ
+	 * @param index インデックス
 	 * @param name ボーン名
 	 * @param parent_index 親ボーン番号
 	 * @param tail_pos_index tail位置のボーン番号
@@ -28,8 +30,9 @@ public final class PMDBone {
 	 * @param ik_parent_index IKボーン番号
 	 * @param head_pos ボーンのヘッドの位置
 	 */
-	public PMDBone(String name, int parent_index, int tail_pos_index, byte type, int ik_parent_index, Vector3 head_pos) {
+	public PMDBone(int index, String name, int parent_index, int tail_pos_index, byte type, int ik_parent_index, Point3D head_pos) {
 
+		this.index = index;
 		this.name = name;
 		this.parent_index = parent_index;
 		this.tail_pos_index = tail_pos_index;
@@ -39,6 +42,12 @@ public final class PMDBone {
 
 	}
 
+	/**
+	 * @return index
+	 */
+	public int getIndex() {
+		return index;
+	}
 	/**
 	 * @return name
 	 */
@@ -77,7 +86,7 @@ public final class PMDBone {
 	/**
 	 * @return head_pos
 	 */
-	public Vector3 getHead_pos() {
+	public Point3D getHead_pos() {
 		return head_pos;
 	}
 

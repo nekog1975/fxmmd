@@ -5,18 +5,15 @@ package fxmmd;
  * @author neko爺
  *
  */
-public final class Vector4 {
+public final class Point4D {
 
-	private float x;
-	private float y;
-	private float z;
-	private float t;
+	private float[] coordinate = new float[4];
 
 	/**
 	 * コンストラクタ
 	 * @param coordinate 座標配列
 	 */
-	public Vector4(float[] coordinate) {
+	public Point4D(float[] coordinate) {
 
 		if(coordinate.length != 4) {
 
@@ -24,10 +21,10 @@ public final class Vector4 {
 
 		}
 
-		x = coordinate[0];
-		y = -coordinate[1];
-		z = coordinate[2];
-		t = coordinate[3];
+		this.coordinate[0] = coordinate[0];
+		this.coordinate[1] = -coordinate[1];
+		this.coordinate[2] = coordinate[2];
+		this.coordinate[3] = coordinate[3];
 
 	}
 
@@ -38,13 +35,21 @@ public final class Vector4 {
 	 * @param z Z座標
 	 * @param t 回転
 	 */
-	public Vector4(float x, float y, float z, float t) {
+	public Point4D(float x, float y, float z, float t) {
 
-		this.x = x;
-		this.y = -y;
-		this.z = z;
-		this.t = t;
+		this.coordinate[0] = x;
+		this.coordinate[1] = -y;
+		this.coordinate[2] = z;
+		this.coordinate[3] = t;
 
+	}
+
+	/**
+	 * 座標データの配列を取得する
+	 * @return float配列
+	 */
+	public float[] getVectorArray() {
+		return coordinate;
 	}
 
 	/**
@@ -53,7 +58,7 @@ public final class Vector4 {
 	 */
 	public float getX() {
 
-		return x;
+		return coordinate[0];
 
 	}
 
@@ -63,7 +68,7 @@ public final class Vector4 {
 	 */
 	public float getY() {
 
-		return y;
+		return coordinate[1];
 
 	}
 
@@ -73,7 +78,7 @@ public final class Vector4 {
 	 */
 	public float getZ() {
 
-		return z;
+		return coordinate[2];
 
 	}
 
@@ -83,7 +88,7 @@ public final class Vector4 {
 	 */
 	public float getT() {
 
-		return t;
+		return coordinate[3];
 
 	}
 

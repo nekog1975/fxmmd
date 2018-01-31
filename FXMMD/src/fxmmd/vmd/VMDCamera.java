@@ -3,7 +3,7 @@
  */
 package fxmmd.vmd;
 
-import fxmmd.Vector3;
+import javafx.geometry.Point3D;
 
 /**
  * カメラの情報です。
@@ -14,8 +14,8 @@ public final class VMDCamera {
 
 	private int frame_no;
 	private float length;
-	private Vector3 location;
-	private Vector3 rotation;
+	private Point3D location;
+	private Point3D rotation;
 	private int[] interporations;
 	private int viewing_angle;
 	private byte perspective;
@@ -30,7 +30,7 @@ public final class VMDCamera {
 	 * @param viewing_angle 視界角
 	 * @param perspective パースペクティブ
 	 */
-	public VMDCamera(int frame_no, float length, Vector3 location, Vector3 rotation, int[] interporations, int viewing_angle, byte perspective) {
+	public VMDCamera(int frame_no, float length, Point3D location, Point3D rotation, int[] interporations, int viewing_angle, byte perspective) {
 
 		this.frame_no = frame_no;
 		this.length = length;
@@ -59,14 +59,14 @@ public final class VMDCamera {
 	/**
 	 * @return location
 	 */
-	public Vector3 getLocation() {
+	public Point3D getLocation() {
 		return location;
 	}
 
 	/**
 	 * @return rotation
 	 */
-	public Vector3 getRotation() {
+	public Point3D getRotation() {
 		return rotation;
 	}
 

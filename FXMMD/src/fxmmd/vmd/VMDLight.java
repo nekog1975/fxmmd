@@ -4,7 +4,7 @@
 package fxmmd.vmd;
 
 import fxmmd.Rgb;
-import fxmmd.Vector3;
+import javafx.geometry.Point3D;
 
 /**
  * 照明のデータです。
@@ -15,7 +15,7 @@ public final class VMDLight {
 
 	private int franme_no;
 	private Rgb color;
-	private Vector3 location;
+	private Point3D location;
 
 	/**
 	 * コンストラクタ
@@ -23,7 +23,7 @@ public final class VMDLight {
 	 * @param color カラー
 	 * @param location ロケーション
 	 */
-	public VMDLight(int frame_no, Rgb color, Vector3 location) {
+	public VMDLight(int frame_no, Rgb color, Point3D location) {
 
 		this.franme_no = frame_no;
 		this.color = color;
@@ -48,7 +48,7 @@ public final class VMDLight {
 	/**
 	 * @return location
 	 */
-	public Vector3 getLocation() {
+	public Point3D getLocation() {
 		return location;
 	}
 

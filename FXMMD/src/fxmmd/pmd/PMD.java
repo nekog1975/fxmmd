@@ -25,6 +25,20 @@ public final class PMD {
 	private String[] bone_names;
 	private List<PMDBoneFrame> bone_frames;
 
+	/**
+	 * コンストラクタ
+	 * @param path フォルダパス
+	 * @param header ヘッダー
+	 * @param vertexs 頂点情報
+	 * @param faces 面情報
+	 * @param materials 材質情報
+	 * @param bones ボーン情報
+	 * @param iks IK情報
+	 * @param skins 表情情報
+	 * @param skin_indexs 表情表示情報
+	 * @param bone_names ボーン名情報
+	 * @param bone_frames ボーン枠名情報
+	 */
 	public PMD(
 			Path path,
 			PMDHeader header,
@@ -50,6 +64,7 @@ public final class PMD {
 		this.skin_indexs = skin_indexs;
 		this.bone_names = bone_names;
 		this.bone_frames = bone_frames;
+
 	}
 
 	/**

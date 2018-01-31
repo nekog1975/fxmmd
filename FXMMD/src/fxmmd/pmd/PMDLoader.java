@@ -11,9 +11,10 @@ import java.util.List;
 
 import fxmmd.Rgb;
 import fxmmd.Rgba;
-import fxmmd.Vector2;
-import fxmmd.Vector3;
 import fxmmd.common.util.ByteUtil;
+import javafx.geometry.Point2D;
+import javafx.geometry.Point3D;
+import javafx.scene.transform.Affine;
 
 /**
  * PMD形式ファイルを読み込み、PMDクラスを生成します。
@@ -29,6 +30,12 @@ public final class PMDLoader {
 	 * @throws IOException ファイル読み込み失敗時や、指定文字コード不正時
 	 */
 	public static PMD load(Path path) throws IOException {
+
+		Affine affine = new Affine(
+				1,  0,  0,  0,
+				0, -1,  0,  0,
+				0,  0,  1,  0
+			);
 
 		int offset = 0;
 
@@ -62,9 +69,10 @@ public final class PMDLoader {
 		for(int i=0; i<vertexCount; i++) {
 
 			vertexs.add(new PMDVertex(
-						new Vector3(ByteUtil.toFloatArray(bytes, offset, 3)),
-						new Vector3(ByteUtil.toFloatArray(bytes, offset + 12, 3)),
-						new Vector2(ByteUtil.toFloatArray(bytes, offset + 24, 2)),
+						i,
+						affine.transform(new Point3D(ByteUtil.toFloat(bytes, offset), ByteUtil.toFloat(bytes, offset + 4), ByteUtil.toFloat(bytes, offset + 8))),
+						affine.transform(new Point3D(ByteUtil.toFloat(bytes, offset + 12), ByteUtil.toFloat(bytes, offset + 16), ByteUtil.toFloat(bytes, offset + 20))),
+						new Point2D(ByteUtil.toFloat(bytes, offset + 24), ByteUtil.toFloat(bytes, offset + 28)),
 						ByteUtil.toWIntArray(bytes, offset + 32, 2),
 						bytes[offset + 36],
 						bytes[offset + 37]
@@ -127,17 +135,19 @@ public final class PMDLoader {
 		for(int i=0; i<boneCount; i++) {
 
 			bones.add(new PMDBone(
+					i,
 					ByteUtil.toString(bytes, offset, 20),
 					ByteUtil.toWInt(bytes, offset + 20),
 					ByteUtil.toWInt(bytes, offset + 22),
 					bytes[offset + 24],
 					ByteUtil.toWInt(bytes, offset + 25),
-					new Vector3(ByteUtil.toFloatArray(bytes, offset + 27, 3))
+					affine.transform(new Point3D(ByteUtil.toFloat(bytes, offset + 27), ByteUtil.toFloat(bytes, offset + 31), ByteUtil.toFloat(bytes, offset + 35)))
 				)
 			);
 
 			offset += 39;
 		}
+
 
 		// IK情報読み込み
 		List<PMDIk> iks = new ArrayList<PMDIk>();
@@ -177,7 +187,7 @@ public final class PMDLoader {
 			for(int j=0; j<skinVerLength; j++) {
 				skinVertexs.add(new PMDSkinVertex(
 						ByteUtil.toDWInt(bytes, offset + 25 + j * 16),
-						new Vector3(ByteUtil.toFloatArray(bytes, 25 + j * 16 + 4, 3))
+						affine.transform(new Point3D(ByteUtil.toFloat(bytes, 25 + j * 16 + 4), ByteUtil.toFloat(bytes, 25 + j * 16 + 8), ByteUtil.toFloat(bytes, 25 + j * 16 + 12)))
 					)
 				);
 			}
