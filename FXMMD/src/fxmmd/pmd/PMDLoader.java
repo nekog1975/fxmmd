@@ -12,6 +12,7 @@ import java.util.List;
 import fxmmd.Rgb;
 import fxmmd.Rgba;
 import fxmmd.common.util.ByteUtil;
+import fxmmd.common.util.PointUtil;
 import javafx.geometry.Point2D;
 import javafx.geometry.Point3D;
 import javafx.scene.transform.Affine;
@@ -31,11 +32,7 @@ public final class PMDLoader {
 	 */
 	public static PMD load(Path path) throws IOException {
 
-		Affine affine = new Affine(
-				1,  0,  0,  0,
-				0, -1,  0,  0,
-				0,  0,  1,  0
-			);
+		Affine affine = PointUtil.create4DAffine();
 
 		int offset = 0;
 
@@ -147,7 +144,6 @@ public final class PMDLoader {
 
 			offset += 39;
 		}
-
 
 		// IK情報読み込み
 		List<PMDIk> iks = new ArrayList<PMDIk>();

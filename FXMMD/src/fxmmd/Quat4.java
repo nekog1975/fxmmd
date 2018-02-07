@@ -1,11 +1,13 @@
 package fxmmd;
 
+import java.util.Arrays;
+
 /**
  * 4次元座標データ（x,y,z,t）です。3次元座標については、PMDデータとJavaFX3D上で、Y軸座標の+-逆転が発生するため、コンストラクタの時点で値を逆転させています。
  * @author neko爺
  *
  */
-public final class Point4D {
+public final class Quat4 {
 
 	private float[] coordinate = new float[4];
 
@@ -13,7 +15,7 @@ public final class Point4D {
 	 * コンストラクタ
 	 * @param coordinate 座標配列
 	 */
-	public Point4D(float[] coordinate) {
+	public Quat4(float[] coordinate) {
 
 		if(coordinate.length != 4) {
 
@@ -33,14 +35,14 @@ public final class Point4D {
 	 * @param x X座標
 	 * @param y Y座標
 	 * @param z Z座標
-	 * @param t 回転
+	 * @param w 回転
 	 */
-	public Point4D(float x, float y, float z, float t) {
+	public Quat4(float x, float y, float z, float w) {
 
 		this.coordinate[0] = x;
 		this.coordinate[1] = -y;
 		this.coordinate[2] = z;
-		this.coordinate[3] = t;
+		this.coordinate[3] = w;
 
 	}
 
@@ -86,10 +88,18 @@ public final class Point4D {
 	 * 回転を取得する
 	 * @return 回転
 	 */
-	public float getT() {
+	public float getW() {
 
 		return coordinate[3];
 
+	}
+
+	/* (非 Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Point4D [coordinate=" + Arrays.toString(coordinate) + "]";
 	}
 
 }

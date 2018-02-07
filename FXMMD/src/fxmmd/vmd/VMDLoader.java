@@ -9,9 +9,10 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-import fxmmd.Point4D;
+import fxmmd.Quat4;
 import fxmmd.Rgb;
 import fxmmd.common.util.ByteUtil;
+import fxmmd.common.util.PointUtil;
 import javafx.geometry.Point3D;
 import javafx.scene.transform.Affine;
 
@@ -30,11 +31,7 @@ public final class VMDLoader {
 	 */
 	public static VMD load(Path path) throws IOException {
 
-		Affine affine = new Affine(
-				1,  0,  0,  0,
-				0, -1,  0,  0,
-				0,  0,  1,  0
-			);
+		Affine affine = PointUtil.create4DAffine();
 
 		int offset = 0;
 		List<VMDMotion> motions = new ArrayList<VMDMotion>();
@@ -65,7 +62,7 @@ public final class VMDLoader {
 					ByteUtil.toString(bytes, offset, 15),
 					ByteUtil.toDWInt(bytes, offset + 15),
 					affine.transform(new Point3D(ByteUtil.toFloat(bytes, offset + 19), ByteUtil.toFloat(bytes, offset + 23), ByteUtil.toFloat(bytes, offset + 27))),
-					new Point4D(ByteUtil.toFloatArray(bytes, offset + 31, 4)),
+					new Quat4(ByteUtil.toFloatArray(bytes, offset + 31, 4)),
 					ByteUtil.toUByteArray(bytes, offset + 47 , 64)
 				)
 			);

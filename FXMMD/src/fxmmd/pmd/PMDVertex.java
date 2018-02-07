@@ -28,7 +28,7 @@ public final class PMDVertex {
 	 * @param normal 法線ベクトル
 	 * @param uv UV座標
 	 * @param bone_no ボーン番号１、ボーン番号２
-	 * @param bone_weight ボーンに与える影響度
+	 * @param bone_weight ボーンが与える影響度
 	 * @param edge_flag エッジ（輪郭）
 	 */
 	public PMDVertex(int index, Point3D pos, Point3D normal, Point2D uv, int[] bone_no, byte bone_weight, byte edge_flag) {

@@ -26,7 +26,7 @@ public final class PMDBone {
 	 * @param name ボーン名
 	 * @param parent_index 親ボーン番号
 	 * @param tail_pos_index tail位置のボーン番号
-	 * @param type タイプ
+	 * @param type タイプ(0:回転、1:回転と移動、2:IK、3:不明、4:IK影響下、5:回転影響下、6:IK接続先、7:非表示)
 	 * @param ik_parent_index IKボーン番号
 	 * @param head_pos ボーンのヘッドの位置
 	 */
@@ -48,6 +48,7 @@ public final class PMDBone {
 	public int getIndex() {
 		return index;
 	}
+
 	/**
 	 * @return name
 	 */
